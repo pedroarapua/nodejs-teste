@@ -11,6 +11,9 @@
   "dependencies": {
     "koa": "^1.2.4"
   },
+  "peerDependencies": {
+    "eslint": "^3.13.0"
+  },
   "devDependencies": {
     "eslint": "^3.13.0"
   }
