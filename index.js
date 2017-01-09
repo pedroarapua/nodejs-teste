@@ -1,7 +1,9 @@
-var koa = require('koa');
-var app = koa();
+/*eslint require-yield: "error"*/
 
-app.use(function (){
+const koa = require('koa');
+const app = koa();
+
+app.use(function * (){
   this.body = 'Hello World 1';
 });
 
