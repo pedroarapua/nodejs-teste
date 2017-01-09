@@ -4,17 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/eslint/bin/eslint.js ."
+    "lint": "eslint .",
+    "test": "npm run lint"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "eslint": "^3.13.0",
     "koa": "^1.2.4"
-  },
-  "peerDependencies": {
-    "eslint": "^3.13.0"
-  },
-  "devDependencies": {
-    "eslint": "^3.13.0"
   }
 }
