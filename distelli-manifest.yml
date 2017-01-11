@@ -19,13 +19,16 @@ pedroarapua/nodejs-teste:
     - npm test
   
   PreInstall:
-    - sudo apt-get -y update
-    - sudo apt-get -y install build-essential libssl-dev curl
-    - curl https://raw.githubusercontent.com/creationix/nvm/$NVM_VERSION/install.sh | bash
-    - echo "source $HOME/.nvm/nvm.sh" >> $HOME/.profile
-    - source $HOME/.profile
-    - nvm install $NODE_VERSION
-    - nvm alias default $NODE_VERSION
+    - sudo apt-get update
+    - sudo apt-get install build-essential openssl libssl-dev curl
+    - cd ~
+    - curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
+    - sudo bash nodesource_setup.sh
+    - sudo apt-get install nodejs
+    #- echo "source $HOME/.nvm/nvm.sh" >> $HOME/.profile
+    #- source $HOME/.profile
+    #- nvm install $NODE_VERSION
+    #- nvm alias default $NODE_VERSION
 
   Install:
     - npm install
