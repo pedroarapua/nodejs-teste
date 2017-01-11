@@ -23,8 +23,7 @@ pedroarapua/nodejs-teste:
     - sudo apt-get -y install build-essential libssl-dev curl
     - sudo curl -sL "https://raw.githubusercontent.com/creationix/nvm/$NVM_VERSION/install.sh" -o install_nvm.sh
     - sudo bash install_nvm.sh
-    - source /etc/bash.bashrc
-    - sudo nvm install "$NODE_VERSION"
+    - sudo cd ~/.nvm nvm install "$NODE_VERSION"
 
   PostInstall:
     - npm install
