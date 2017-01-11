@@ -3,9 +3,6 @@ pedroarapua/nodejs-teste:
   PkgInclude:
     - '*'
   
-  PkgExclude:
-    - node_modules/
-  
   PreBuild:
     - sudo apt-get -y update
     - sudo apt-get -y install build-essential libssl-dev curl
