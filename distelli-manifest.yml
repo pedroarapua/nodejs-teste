@@ -25,6 +25,7 @@ pedroarapua/nodejs-teste:
     - export NVM_DIR=$HOME/.nvm
     - source $HOME/.nvm/nvm.sh
     - nvm install $NODE_VERSION
+    - export NODE_DIR=$NVM_DIR/versions/node/$NODE_VERSION
 
   Env:
     - NVM_VERSION: "v0.31.7"
@@ -32,4 +33,4 @@ pedroarapua/nodejs-teste:
     - PORT: "3000"
 
   Exec:
-    - node .
+    - cd $NODE_DIR/bin && ./node .
