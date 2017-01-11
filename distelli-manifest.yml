@@ -1,14 +1,25 @@
 pedroarapua/nodejs-teste:
-  Build:
-    - npm install
-    - npm test
+  
   PkgInclude:
     - '*'
-  PreInstall:
+  
+  PkgExclude:
+    - node_modules/
+  
+  PreBuild:
     - sudo apt-get -y update
-    - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-    - sudo apt-get -y install nodejs
+    - sudo apt-get -y install build-essential libssl-dev curl
+    - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.0/install.sh | bash
+
+  Build:
+    - source ~/.nvm/nvm.sh
+    - nvm install v6.9.1
+    - npm install npm -g
+    - npm install
+    - npm test
+  
   Env:
     - PORT: "3000"
+
   Exec:
     - npm start
