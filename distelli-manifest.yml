@@ -25,9 +25,6 @@ pedroarapua/nodejs-teste:
     - sudo bash install_nvm.sh
     - cd ~/.nvm nvm install "$NODE_VERSION"
 
-  PostInstall:
-    - npm install
-    
   Env:
     - NVM_VERSION: "v0.31.7"
     - NODE_VERSION: "v6.9.1"
