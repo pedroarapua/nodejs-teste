@@ -21,14 +21,14 @@ pedroarapua/nodejs-teste:
   PreInstall:
     - sudo apt-get -y update
     - sudo apt-get -y install build-essential libssl-dev curl
-    - curl -o- https://raw.githubusercontent.com/creationix/nvm/$NVM_VERSION/install.sh | bash
-    - export NVM_DIR=$HOME/.nvm
-    - source $HOME/.nvm/nvm.sh
+    - curl https://raw.githubusercontent.com/creationix/nvm/$NVM_VERSION/install.sh | bash
+    - echo "$HOME/.nvm/nvm.sh" >> "$HOME/.profile
+    - source $HOME/.profile
     - nvm install $NODE_VERSION
-    - export NODE_DIR=$NVM_DIR/versions/node/$NODE_VERSION
-  
+    - nvm alias default $NODE_VERSION
+
   Install:
-    - /home/distelli/.nvm/versions/node/v6.9.1/bin/npm install
+    - npm install
 
   Env:
     - NVM_VERSION: "v0.31.7"
@@ -36,4 +36,4 @@ pedroarapua/nodejs-teste:
     - PORT: "3000"
 
   Exec:
-    - /home/distelli/.nvm/versions/node/v6.9.1/bin/node .
+    - npm start
