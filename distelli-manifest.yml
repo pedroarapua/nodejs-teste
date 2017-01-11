@@ -21,16 +21,16 @@ pedroarapua/nodejs-teste:
   PreInstall:
     - sudo apt-get -y update
     - sudo apt-get -y install build-essential libssl-dev curl
-    - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.0/install.sh | bash
     #- source ~/.profile
     #- source ~/.nvm/nvm.sh
 
   Install:
-    - nvm install v6.9.1
-    - npm install npm -g
-    - npm install
+    - curl -o- "https://raw.githubusercontent.com/creationix/nvm/$NVM_VERSION/install.sh" | bash
+    - nvm install "v6.9.1"
 
   Env:
+    - NVM_VERSION: "v.0.31.7"
+    - NODE_VERSION: "v6.9.1"
     - PORT: "3000"
 
   Exec:
