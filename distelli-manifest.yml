@@ -33,4 +33,4 @@ pedroarapua/nodejs-teste:
     - PORT: "3000"
 
   Exec:
-    - $NODE_DIR/bin/node .
+    - /home/distelli/.nvm/versions/node/v6.9.1/bin/node .
