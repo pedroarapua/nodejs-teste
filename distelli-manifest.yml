@@ -32,4 +32,4 @@ pedroarapua/nodejs-teste:
     - PORT: "3000"
 
   Exec:
-    - npm start
+    - node .
