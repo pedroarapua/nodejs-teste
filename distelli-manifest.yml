@@ -40,7 +40,7 @@ pedroarapua/nodejs-teste:
   Env:
     - NVM_VERSION: "v0.31.7"
     - NODE_VERSION: "v6.9.1"
-    - PORT: "80"
+    - PORT: "3000"
 
   Exec:
     - npm start
