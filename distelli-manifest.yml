@@ -26,6 +26,10 @@ pedroarapua/nodejs-teste:
     - source $HOME/.nvm/nvm.sh
     - nvm install $NODE_VERSION
     - export NODE_DIR=$NVM_DIR/versions/node/$NODE_VERSION
+    - sudo ln -s /usr/bin/nodejs /usr/bin/node
+  
+  Install:
+    - /home/distelli/.nvm/versions/node/v6.9.1/bin/npm install
 
   Env:
     - NVM_VERSION: "v0.31.7"
