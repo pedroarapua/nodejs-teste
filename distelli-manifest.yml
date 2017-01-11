@@ -33,4 +33,4 @@ pedroarapua/nodejs-teste:
     - PORT: "3000"
 
   Exec:
-    - cd $NODE_DIR/bin && ./node .
+    - $NODE_DIR/bin/node .
