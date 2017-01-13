@@ -43,5 +43,6 @@ pedroarapua/nodejs-teste:
     - NODE_VERSION: "v6.9.1"
     - PORT: "3000"
 
-  Exec:
-    - sudo pm2 stop all && sudo pm2 start $DISTELLI_INSTALLHOME/index.js
+  Start:
+    - echo "Starting application"
+    - /usr/bin/pm2 start index.js  
