@@ -45,4 +45,5 @@ pedroarapua/nodejs-teste:
 
   Start:
     - echo "Starting application"
+    - /usr/bin/pm2 stop all
     - /usr/bin/pm2 start index.js  
