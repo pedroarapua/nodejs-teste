@@ -29,7 +29,7 @@ pedroarapua/nodejs-teste:
     #- echo "source $HOME/.nvm/nvm.sh" >> $HOME/.profile
     #- source $HOME/.profile
     #- nvm install $NODE_VERSION
-    #- nvm alias default $NODE_VERSION
+    #- nvm alias default $NODE_VERSION  
   
   PostInstall:
     - echo "Begin PostInstall"
@@ -45,5 +45,4 @@ pedroarapua/nodejs-teste:
 
   Start:
     - echo "Starting application"
-    - /usr/bin/pm2 stop all
-    - /usr/bin/pm2 start $DISTELLI_INSTALLHOME/index.js --name my-api 
+    - /usr/bin/pm2 stop all &&/usr/bin/pm2 start $DISTELLI_INSTALLHOME/index.js --name my-api 
