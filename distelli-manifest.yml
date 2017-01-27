@@ -45,5 +45,4 @@ pedroarapua/nodejs-teste:
 
   Start:
     - echo "Starting application"
-    - sudo /usr/bin/pm2 stop all 
     - sudo /usr/bin/pm2 start $DISTELLI_INSTALLHOME/index.js --name my-api 
