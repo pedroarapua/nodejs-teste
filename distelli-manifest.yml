@@ -46,4 +46,4 @@ pedroarapua/nodejs-teste:
   Start:
     - echo "Starting application"
     - /usr/bin/pm2 stop all
-    - /usr/bin/pm2 start index.js  
+    - /usr/bin/pm2 start $DISTELLI_INSTALLHOME/index.js  
