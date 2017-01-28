@@ -1,5 +1,10 @@
 pedro/nodejs-teste:
 
+  PreBuild:
+    - sudo apt-get -y update
+    - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+    - sudo apt-get install -y nodejs
+
   Build:
     - npm install
     - npm test
@@ -12,6 +17,7 @@ pedro/nodejs-teste:
 
   PreInstall:
     - sudo apt-get -y update
+     - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
     - sudo apt-get -y install nodejs
 
   Env:
