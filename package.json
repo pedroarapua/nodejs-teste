@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "./node_modules/.bin/eslint .",
     "test": "npm run lint",
     "start": "node ."
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eslint": "^3.13.0",
     "koa": "^1.2.4"
+  },
+  "devDependencies": {
+    "eslint": "^3.14.1"
   }
 }
