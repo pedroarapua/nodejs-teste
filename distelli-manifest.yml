@@ -1,11 +1,8 @@
 pedro/nodejs-teste:
 
-  PreBuild:
-    - sudo apt-get -y update
-    - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-    - sudo apt-get install -y nodejs
-
-  Build:
+ Build:
+    - nvm install v6.9.1
+    - npm install npm -g
     - npm install
     - npm test
 
@@ -17,11 +14,18 @@ pedro/nodejs-teste:
 
   PreInstall:
     - sudo apt-get -y update
-     - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-    - sudo apt-get -y install nodejs
+    - sudo apt-get install -y build-essential openssl libssl-dev curl
+    - cd ~
+    - curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
+    - sudo bash nodesource_setup.sh
+    - sudo apt-get install -y nodejs
+
+   PostInstall:
+    - echo "Begin PostInstall"
+    - npm install
 
   Env:
     - PORT: "3000"
 
   Exec:
-    - nodejs app.js
+    - node index.js
