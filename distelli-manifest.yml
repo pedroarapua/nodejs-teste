@@ -1,23 +1,23 @@
-pedroarapua/nodejs-teste:
-  
+pedro/nodejs-teste:
+
   PkgInclude:
     - '*'
 
   PkgExclude:
     - node_modules/
-  
+
   PreBuild:
     - sudo apt-get -y update
     - sudo apt-get -y install build-essential libssl-dev curl
 #    - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.0/install.sh | bash
-  
+
   Build:
 #    - source ~/.nvm/nvm.sh
     - nvm install v6.9.1
     - npm install npm -g
     - npm install
     - npm test
-  
+
   PreInstall:
     - sudo apt-get -y update
     - sudo apt-get install -y build-essential openssl libssl-dev curl
@@ -29,8 +29,8 @@ pedroarapua/nodejs-teste:
     #- echo "source $HOME/.nvm/nvm.sh" >> $HOME/.profile
     #- source $HOME/.profile
     #- nvm install $NODE_VERSION
-    #- nvm alias default $NODE_VERSION  
-  
+    #- nvm alias default $NODE_VERSION
+
   PostInstall:
     - echo "Begin PostInstall"
     - npm install
@@ -45,4 +45,4 @@ pedroarapua/nodejs-teste:
 
   Start:
     - echo "Starting application"
-    - sudo /usr/bin/pm2 start $DISTELLI_INSTALLHOME/index.js --name my-api 
+    - sudo /usr/bin/pm2 start $DISTELLI_INSTALLHOME/index.js --name my-api
