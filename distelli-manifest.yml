@@ -1,6 +1,6 @@
 pedro/nodejs-teste:
 
- Build:
+  Build:
     - nvm install v6.9.1
     - npm install npm -g
     - npm install
