@@ -1,4 +1,4 @@
-pedro/nodejs-teste-outro:
+pedro/nodejs-teste:
 
   Build:
     - nvm install v6.9.1
