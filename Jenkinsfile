@@ -1,14 +1,10 @@
 pipeline {
-    agent { dockerfile true }
+    agent { node { label 'swarm-ci' } }
+    //agent { dockerfile true }
     stages {
         stage('Build') {
             steps {
-                sh 'node --version'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'npm test'
+                sh 'docker ps'
             }
         }
     }
