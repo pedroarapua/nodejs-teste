@@ -1,5 +1,12 @@
 pipeline {
-    agent { node { label 'swarm-ci' } }
+    agent { 
+        node { 
+            label 'docker'
+        }
+    }
+    tools {
+        nodejs 'nodejs'
+    }
     //agent { dockerfile true }
     stages {
         stage('Build') {
