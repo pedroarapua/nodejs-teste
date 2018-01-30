@@ -4,9 +4,6 @@ pipeline {
             label 'docker'
         }
     }
-    tools {
-        nodejs 'nodejs'
-    }
     //agent { dockerfile true }
     stages {
         stage('Build') {
