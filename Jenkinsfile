@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                echo 'ola mundo'
+                echo 'ola mundo 2'
             }
         }
     }
