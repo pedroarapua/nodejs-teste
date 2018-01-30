@@ -1,9 +1,9 @@
 pipeline {
-    agent { dockerfile true label 'teste-tag' }
+    agent { dockerfile true }
     stages {
         stage('Test') {
             steps {
-                sh 'ls'
+                sh 'docker ps'
             }
         }
     }
