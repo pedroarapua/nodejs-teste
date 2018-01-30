@@ -1,9 +1,9 @@
 pipeline {
-    agent docker
+    agent any
     stages {
         stage('Test') {
             steps {
-                sh 'docker -v'
+                sh 'ola mundo'
             }
         }
     }
