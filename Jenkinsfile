@@ -1,9 +1,9 @@
 pipeline {
-    agent { dockerfile true }
+    agent docker
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
+                sh 'docker -v'
             }
         }
     }
