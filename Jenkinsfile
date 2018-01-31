@@ -10,8 +10,10 @@ pipeline {
         }
         stage('Test') {
             steps {
-                app.inside {
-                    sh 'npm test'
+                script {
+                    app.inside {
+                        sh 'npm test'
+                    }
                 }
             }
         }
