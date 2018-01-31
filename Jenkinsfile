@@ -1,14 +1,17 @@
 pipeline {
-    agent { 
-        node { 
-            label 'docker'
-        }
-    }
-    //agent { dockerfile true }
+    def app
+    agent any
     stages {
         stage('Build') {
             steps {
-                sh 'docker ps'
+                app = docker.build("teste/${env.BUILD_NUMBER}")
+            }
+        }
+        stage('Test') {
+            steps {
+                app.inside {
+                    sh 'npm test'
+                }
             }
         }
     }
