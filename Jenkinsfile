@@ -1,10 +1,14 @@
 pipeline {
     agent any
+    environment {
+        IMAGE_ID_NUMBER = "pedroarapua/nodejs-teste:${env.BUILD_NUMBER}"
+        IMAGE_ID_LATEST = "pedroarapua/nodejs-teste:latest"
+    }
     stages {
         stage('Build') {
             steps {
                 script {
-                   app = docker.build("pedroarapua/nodejs-teste-${env.BUILD_NUMBER}")
+                   app = docker.build("${env.IMAGE_ID_NUMBER}")
                 }
             }
         }
@@ -22,8 +26,8 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials-pedro') {
-                        app.push("${env.BUILD_NUMBER}")
-                        app.push("latest")
+                        app.push("${env.IMAGE_ID_NUMBER}")
+                        app.push("${env.IMAGE_ID_LATEST}")
                     }
                 }
             }
