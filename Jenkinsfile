@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'apt-get install python-pip'
+                sh 'sudo apt-get install python-pip'
                 script {
                     app.inside {
                         sh 'npm test'
