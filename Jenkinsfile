@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'apk add --no-cache py-pip'
+                sh 'apt-get install python-pip'
                 script {
                     app.inside {
                         sh 'npm test'
