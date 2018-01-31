@@ -1,7 +1,7 @@
 pipeline {
-    def app
     agent any
     stages {
+        def app
         stage('Build') {
             steps {
                 app = docker.build("teste/${env.BUILD_NUMBER}")
