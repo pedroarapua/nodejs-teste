@@ -22,13 +22,12 @@ pipeline {
               /* Wait until mysql service is up */
               sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
             }
-            app.inside("--link ${c.id}:db") {
+            docker.image('centos:7').inside("--link ${c.id}:db") {
               /*
                * Run some tests which require MySQL, and assume that it is
                * available on the host name `db`
                */
-              sh 'ping db'
-              sh 'npm test'
+              sh 'make check'
             }
           }          
         }
