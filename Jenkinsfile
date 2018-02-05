@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                   app = docker.build("${env.IMAGE_ID}:${env.BRANCH_NAME}-${env.BUILD_ID}")
+                   app = docker.build("${env.IMAGE_ID}:${env.BUILD_ID}")
                 }
             }
         }
