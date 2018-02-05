@@ -19,6 +19,7 @@ pipeline {
                 //sh 'sudo apt-get install python-pip'
                 script {
                     app.inside {
+                        sh 'printenv'
                         sh 'npm test'
                     }
                 }
