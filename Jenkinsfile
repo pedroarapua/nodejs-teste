@@ -10,7 +10,6 @@ pipeline {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials-pedro') {
                         app = docker.build("${env.IMAGE_ID}:${env.BUILD_ID}")
                         app.push()
-                        app.push("latest")
                     }
                 }
             }
