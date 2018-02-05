@@ -34,6 +34,13 @@ pipeline {
       }
     }
     stage('Release') {
+      when { 
+        anyOf { 
+          branch 'master'; 
+          branch 'staging' 
+        } 
+      }
+
       steps {
         script {
           docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials-pedro') {
@@ -44,6 +51,9 @@ pipeline {
       }
     }
     stage('Deploy Staging') {
+      when {
+         branch "hml"
+      }
       steps {
         script {
           sh 'echo "staging"'
@@ -51,11 +61,14 @@ pipeline {
       }
     }
     stage('Deploy Production') {
+      when {
+         branch "master"
+      }
       steps {
         timeout(time: 5, unit: 'DAYS') {
           input "Does the staging environment for ${env.APP_NAME} look ok?"
           script {
-            sh 'echo "staging"'
+            sh 'echo "production"'
           }
         }
       }
