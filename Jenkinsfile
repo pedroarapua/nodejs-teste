@@ -22,7 +22,7 @@ pipeline {
               /* Wait until mysql service is up */
               sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
             }
-            docker.image('${env.IMAGE_ID}').inside("--link ${c.id}:db") {
+            app.inside("--link ${c.id}:db") {
               /*
                * Run some tests which require MySQL, and assume that it is
                * available on the host name `db`
