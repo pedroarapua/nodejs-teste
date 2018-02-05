@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                   app = docker.build("${env.BRANCH_NAME}:${env.BUILD_ID}")
+                   app = docker.build("master:${env.BUILD_ID}")
                 }
             }
         }
