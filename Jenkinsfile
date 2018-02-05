@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                   app = docker.build("${env.IMAGE_ID}")
+                   app = docker.build("${env.BRANCH_NAME}:${env.BUILD_ID}")
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials-pedro') {
-                        app.push("${env.BUILD_NUMBER}")
+                        app.push()
                         app.push("latest")
                     }
                 }
