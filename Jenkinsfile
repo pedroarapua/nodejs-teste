@@ -30,7 +30,7 @@ pipeline {
                 }
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials-pedro') {
-                        app.push("${env.BUILD_TAG}")
+                        app.push("${env.BUILD_DISPLAY_NAME}")
                     }
                 }
             }
