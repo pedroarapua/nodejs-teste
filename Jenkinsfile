@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials-pedro') {
-                        app = docker.build("${env.IMAGE_ID}:10")
+                        app = docker.build("${env.IMAGE_ID}:master-${env.BUILD_ID}")
                         app.push()
                     }
                 }
