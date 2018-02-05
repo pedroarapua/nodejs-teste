@@ -7,7 +7,11 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                   app = docker.build("${env.IMAGE_ID}:${env.BUILD_ID}")
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials-pedro') {
+                        app = docker.build("${env.IMAGE_ID}:${env.BUILD_ID}")
+                        app.push()
+                        app.push("latest")
+                    }
                 }
             }
         }
@@ -21,15 +25,6 @@ pipeline {
                 }
             }
         }
-        stage('Staging') {
-            steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials-pedro') {
-                        app.push()
-                        app.push("latest")
-                    }
-                }
-            }
-        }
+        
     }
 }
