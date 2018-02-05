@@ -36,8 +36,9 @@ pipeline {
     stage('Release') {
       when { 
         anyOf { 
-          branch 'master'; 
-          branch 'staging' 
+          branch 'master'
+          branch 'hml'
+          branch 'pilot'
         } 
       }
 
@@ -60,13 +61,26 @@ pipeline {
         }
       }
     }
-    stage('Deploy Production') {
-      when {
-         branch "master"
+    stage('Deploy Pilot') {
+      when { 
+        branch 'pilot'
       }
       steps {
-        timeout(time: 5, unit: 'DAYS') {
-          input "Does the staging environment for ${env.APP_NAME} look ok?"
+        timeout(time: 1, unit: 'DAYS') {
+          input "Does the pilot environment for ${env.APP_NAME} look ok?"
+          script {
+            sh 'echo "pilot"'
+          }
+        }
+      }
+    }
+    stage('Deploy Production') {
+      when { 
+        branch 'master'
+      }
+      steps {
+        timeout(time: 1, unit: 'DAYS') {
+          input "Does the production environment for ${env.APP_NAME} look ok?"
           script {
             sh 'echo "production"'
           }
