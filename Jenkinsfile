@@ -33,12 +33,29 @@ pipeline {
         }
       }
     }
-    stage('Staging') {
+    stage('Release') {
       steps {
         script {
           docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials-pedro') {
             app.push()
             app.push("latest")
+          }
+        }
+      }
+    }
+    stage('Deploy Staging') {
+      steps {
+        script {
+          sh 'echo "staging"'
+        }
+      }
+    }
+    stage('Deploy Production') {
+      steps {
+        timeout(time: 5, unit: 'DAYS') {
+          input "Does the staging environment for ${env.APP_NAME} look ok?"
+          script {
+            sh 'echo "staging"'
           }
         }
       }
