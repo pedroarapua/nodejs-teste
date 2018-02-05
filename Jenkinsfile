@@ -26,8 +26,10 @@ pipeline {
     stage('Staging') {
       steps {
         script {
-          app.push()
-          app.push("latest")
+          docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials-pedro') {
+            app.push()
+            app.push("latest")
+          }
         }
       }
     }
